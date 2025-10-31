@@ -71,8 +71,10 @@ def convert(
     # Nettoyer l'écran pour démarrer
     clear_screen()
     
-    # Initialiser le logger
-    logger = setup_logger()
+    # Initialiser le logger dans le répertoire du projet
+    project_dir = Path(__file__).parent.resolve()
+    log_file = project_dir / "excel_to_db.log"
+    logger = setup_logger(log_file=log_file)
     
     try:
         # ÉTAPE 1: Sélection du fichier Excel
@@ -276,7 +278,7 @@ def convert(
             total_rows_inserted,
             total_duration,
             size_str,
-                "excel_to_db.log"
+            str(log_file)
         )
         
     except KeyboardInterrupt:
@@ -302,7 +304,10 @@ def info(
         show_error(f"La base de données {db_path} n'existe pas")
         return
     
-    logger = setup_logger()
+    # Initialiser le logger dans le répertoire du projet
+    project_dir = Path(__file__).parent.resolve()
+    log_file = project_dir / "excel_to_db.log"
+    logger = setup_logger(log_file=log_file)
     db_manager = DatabaseManager(db_file, logger)
     
     try:
