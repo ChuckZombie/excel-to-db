@@ -1,16 +1,13 @@
 """
 Affichage des données avec Rich - Version améliorée
+Fonctions d'affichage communes aux deux modes (convert et reverse)
 """
-import pandas as pd
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
-from rich.layout import Layout
 from rich.text import Text
-from rich.align import Align
 from rich import box
-from rich.tree import Tree
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
 # Console avec thème personnalisé
 console = Console()
@@ -19,54 +16,6 @@ console = Console()
 def clear_screen():
     """Effacer l'écran pour une navigation fluide entre les écrans."""
     console.clear()
-
-def show_conversion_summary(
-    db_path: str,
-    sheets_converted: int,
-    total_rows: int,
-    duration: float,
-    db_size: str,
-    log_file: str
-) -> None:
-    """
-    Afficher le résumé final de la conversion (version améliorée).
-    
-    Args:
-        db_path: Chemin vers la base de données
-        sheets_converted: Nombre de feuilles converties
-        total_rows: Nombre total de lignes insérées
-        duration: Durée totale en secondes
-        db_size: Taille de la base de données formatée
-        log_file: Chemin vers le fichier de log
-    """
-    # Calculer les statistiques de performance
-    rows_per_second = int(total_rows / duration) if duration > 0 else 0
-    
-    console.print()
-    
-    # Afficher les statistiques détaillées sous forme de grille
-    grid = Table.grid(padding=(0, 2), expand=True)
-    grid.add_column(style="bold cyan", justify="right")
-    grid.add_column(style="white")
-    
-    grid.add_row("Feuilles converties:", f"{sheets_converted}")
-    grid.add_row("Lignes insérées:", f"{total_rows:,}")
-    grid.add_row("Base de données:", f"{db_path}")
-    grid.add_row("Taille:", f"{db_size}")
-    grid.add_row("Durée:", f"{duration:.2f}s")
-    grid.add_row("Performance:", f"{rows_per_second:,} lignes/s")
-    grid.add_row("Fichier de log:", f"{log_file}")
-    
-    console.print(Panel(
-        grid,
-        title="[bold]Statistiques[/bold]",
-        title_align="left",
-        border_style="dim",
-        box=box.ROUNDED,
-        padding=(1, 2)
-    ))
-    
-    console.print()
 
 
 def show_error(message: str, error: Optional[Exception] = None) -> None:

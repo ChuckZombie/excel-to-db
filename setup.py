@@ -13,13 +13,13 @@ requirements = (this_directory / "requirements.txt").read_text(encoding='utf-8')
 
 setup(
     name="excel-to-db",
-    version="1.0.0",
-    author="Your Name",
-    author_email="your.email@example.com",
-    description="Application CLI pour convertir des fichiers Excel en base de données SQLite",
+    version="1.1.0",
+    author="Sylvain Oriat",
+    author_email="sylvain@oriat.com",
+    description="Application CLI pour convertir des fichiers Excel en base de données SQLite et inversement",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/excel-to-db",
+    url="https://github.com/ChuckZombie/excel-to-db",
     packages=find_packages(),
     py_modules=['main'],  # Inclure main.py en tant que module
     classifiers=[
@@ -49,7 +49,7 @@ setup(
     include_package_data=True,
     keywords="excel sqlite database conversion cli",
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/excel-to-db/issues",
-        "Source": "https://github.com/yourusername/excel-to-db",
+        "Bug Reports": "https://github.com/ChuckZombie/excel-to-db/issues",
+        "Source": "https://github.com/ChuckZombie/excel-to-db",
     },
 )

@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import List, Dict, Optional, Tuple
 import logging
 
-from ..core.type_detector import infer_column_types, get_type_stats, convert_datetime_columns
+from .type_detector import infer_column_types, get_type_stats, convert_datetime_columns
 from ..utils.name_cleaner import clean_table_name, clean_and_ensure_unique
 
 
