@@ -41,7 +41,7 @@ Application CLI moderne et interactive pour convertir des fichiers Excel (.xlsx,
 
 ```powershell
 # Cloner le dépôt
-git clone https://github.com/votre-username/excel-to-db.git
+git clone https://github.com/ChuckZombie/excel-to-db.git
 cd excel-to-db
 ```
 
